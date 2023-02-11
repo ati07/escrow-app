@@ -6,61 +6,47 @@ function Banner() {
     // let subSteps = 0
     const changeSubIndex = () => {
             setInterval(() => {
-                if (subSteps < 5) {
-                    setSubSteps(subSteps +1)
-                    // subSteps = subSteps +1
-                }else{
-                    setSubSteps(0)
-                //   subSteps = 0
-                }   
+                setSubSteps(subSteps +1)
+                // if (subSteps < 5) {
+                //     // subSteps = subSteps +1
+                // }else{
+                //     setSubSteps(0)
+                // //   subSteps = 0
+                // }   
             }, 2000)
         }
-    // useEffect(() => {
-    //     setInterval(() => {
-    //         if(steps < 4){
-    //             setSteps(steps + 1)
-    //             // changeSubIndex()
-    //         }else{
-    //             setSteps(0)
-    //         }
-            
-    //     }, 10000)
-    //     // let time;
-    //     // if (time) {
-    //     //     clearInterval(time)
-    //     // } else {
-    //     //     //  ? setSteps(0) : null
-    //     //     time = setInterval(() => {
-    //     //         if(steps === 4){
-    //     //             setSteps(steps + 1)
-    //     //             changeSubIndex()
-    //     //         }else{
-    //     //             setSteps(0)
-    //     //         }
+   
+    useEffect(()=>{
+        setTimeout(() => {
+            // setSubSteps(subSteps +1)
+            if (subSteps < 4) {
+            setSubSteps(subSteps +1)
+    
+                // subSteps = subSteps +1
+            }else{
+                setSubSteps(0)
+            //   subSteps = 0
+            }   
+        }, 2000)
+    },[subSteps])
+    
+    useEffect(()=>{
+        setTimeout(()=>{
+            if(steps<3){
+                setSteps(steps+1)
                 
-    //     //     }, 10000)
-    //     // }
-    //     //   return () => {
-
-    //     //   }
-    // }, [steps])
-    // useEffect(()=>{
-    //     let time;
-    //  if(time){
-    //     clearInterval(time)
-    //  }else{
-    //     subSteps===5?setSubSteps(0):null
-    //     time=setInterval(()=> {
-    //         setSubSteps(subSteps+1)
-    //       },2000)
-    //  }
-    // },[subSteps])
-
+                // changeSubIndex()
+            }else{
+                setSteps(0)
+                setSubSteps(0)
+            }
+        },10000)
+    },[steps])
     return (
         <div className="section-container" data-component="calculator">
             <div className="sectionHero-inner">
                 <div className="sectionHero-content">
-                    <h1 className="sectionHero-title">Never buy or sell online without using Escrow.com</h1>
+                    <h1 className="sectionHero-title">Never buy or sell online without using<br/> Escrow.com</h1>
                     <h2 className="sectionHero-desc">With Escrow.com you can buy and sell anything safely without the
                         risk of chargebacks. Truly secure payments.</h2>
                     <div className="calculator ">
@@ -167,7 +153,7 @@ function Banner() {
                     </div>
                 </div>
                 <div className="sectionHero-carousel carousel" data-component="carousel">
-                    <div className={`sectionHero-upsell carousel-item`} data-target="carousel-item">
+                    <div className={`sectionHero-upsell carousel-item ${steps === 0 ? 'is-active' : ''}`} data-target="carousel-item">
                         <span className="sectionHero-upsell-title">
                             <span className="sectionHero-upsell-logo">
                                 <span className="sectionHero-upsell-img"><svg width="192" height="192" viewBox="0 0 192 192" xmlns="http://www.w3.org/2000/svg">
@@ -192,7 +178,7 @@ function Banner() {
                         <div className="sectionHero-steps" data-component="steps-rotator">
                             <span className="sectionHero-steps-decorator sectionHero-steps-decorator--above"></span>
                             <ol className="sectionHero-upsell-list">
-                                <li className={`sectionHero-upsell-item`} data-target="step-item">
+                                <li className={`sectionHero-upsell-item ${steps === 0 && subSteps === 0 ? subSteps === 0 ? 'is-current' : 'is-disabled' : ""}`} data-target="step-item">
                                     <svg className="sectionHero-upsell-icon" width="19" height="16" viewBox="0 0 19 16" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M5.69 6.892l2.322 2.21L16.35.312c.38-.4 1.012-.418 1.413-.038.4.38.417 1.013.037 1.414l-9.027 9.517c-.38.402-1.014.418-1.415.037L4.31 8.34c-.4-.38-.415-1.014-.034-1.414.38-.4 1.014-.415 1.414-.034zM11.836.978c.484.265.662.873.397 1.357-.265.485-.873.663-1.357.398C10.002 2.253 9.02 2 8 2 4.686 2 2 4.686 2 8s2.686 6 6 6 6-2.686 6-6c0-.552.448-1 1-1s1 .448 1 1c0 4.418-3.582 8-8 8s-8-3.582-8-8 3.582-8 8-8c1.358 0 2.67.34 3.836.978z" fill-rule="nonzero"></path>
                                     </svg>
@@ -200,7 +186,7 @@ function Banner() {
                                         Buyer and seller agree on terms
                                     </span>
                                 </li>
-                                <li className={`sectionHero-upsell-item`} data-target="step-item">
+                                <li className={`sectionHero-upsell-item ${steps === 0 && subSteps === 1? subSteps === 1 ? 'is-current' : 'is-disabled' : ""}`} data-target="step-item">
                                     <svg className="sectionHero-upsell-icon" width="19" height="16" viewBox="0 0 19 16" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M5.69 6.892l2.322 2.21L16.35.312c.38-.4 1.012-.418 1.413-.038.4.38.417 1.013.037 1.414l-9.027 9.517c-.38.402-1.014.418-1.415.037L4.31 8.34c-.4-.38-.415-1.014-.034-1.414.38-.4 1.014-.415 1.414-.034zM11.836.978c.484.265.662.873.397 1.357-.265.485-.873.663-1.357.398C10.002 2.253 9.02 2 8 2 4.686 2 2 4.686 2 8s2.686 6 6 6 6-2.686 6-6c0-.552.448-1 1-1s1 .448 1 1c0 4.418-3.582 8-8 8s-8-3.582-8-8 3.582-8 8-8c1.358 0 2.67.34 3.836.978z" fill-rule="nonzero"></path>
                                     </svg>
@@ -208,7 +194,7 @@ function Banner() {
                                         Buyer pays Escrow.com
                                     </span>
                                 </li>
-                                <li className={`sectionHero-upsell-item`} data-target="step-item">
+                                <li className={`sectionHero-upsell-item ${steps === 0 && subSteps === 2 ? subSteps === 2 ? 'is-current' : 'is-disabled' : ""}`} data-target="step-item">
                                     <svg className="sectionHero-upsell-icon" width="19" height="16" viewBox="0 0 19 16" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M5.69 6.892l2.322 2.21L16.35.312c.38-.4 1.012-.418 1.413-.038.4.38.417 1.013.037 1.414l-9.027 9.517c-.38.402-1.014.418-1.415.037L4.31 8.34c-.4-.38-.415-1.014-.034-1.414.38-.4 1.014-.415 1.414-.034zM11.836.978c.484.265.662.873.397 1.357-.265.485-.873.663-1.357.398C10.002 2.253 9.02 2 8 2 4.686 2 2 4.686 2 8s2.686 6 6 6 6-2.686 6-6c0-.552.448-1 1-1s1 .448 1 1c0 4.418-3.582 8-8 8s-8-3.582-8-8 3.582-8 8-8c1.358 0 2.67.34 3.836.978z" fill-rule="nonzero"></path>
                                     </svg>
@@ -216,7 +202,7 @@ function Banner() {
                                         Seller transfers the domain name
                                     </span>
                                 </li>
-                                <li className={`sectionHero-upsell-item`} data-target="step-item">
+                                <li className={`sectionHero-upsell-item ${steps === 0 && subSteps === 3 ? subSteps === 3 ? 'is-current' : 'is-disabled' : ""}`} data-target="step-item">
                                     <svg className="sectionHero-upsell-icon" width="19" height="16" viewBox="0 0 19 16" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M5.69 6.892l2.322 2.21L16.35.312c.38-.4 1.012-.418 1.413-.038.4.38.417 1.013.037 1.414l-9.027 9.517c-.38.402-1.014.418-1.415.037L4.31 8.34c-.4-.38-.415-1.014-.034-1.414.38-.4 1.014-.415 1.414-.034zM11.836.978c.484.265.662.873.397 1.357-.265.485-.873.663-1.357.398C10.002 2.253 9.02 2 8 2 4.686 2 2 4.686 2 8s2.686 6 6 6 6-2.686 6-6c0-.552.448-1 1-1s1 .448 1 1c0 4.418-3.582 8-8 8s-8-3.582-8-8 3.582-8 8-8c1.358 0 2.67.34 3.836.978z" fill-rule="nonzero"></path>
                                     </svg>
@@ -224,7 +210,7 @@ function Banner() {
                                         Buyer approves the domain name
                                     </span>
                                 </li>
-                                <li className={`sectionHero-upsell-item`} data-target="step-item">
+                                <li className={`sectionHero-upsell-item ${steps === 0 && subSteps === 4 ? subSteps === 4 ? 'is-current' : 'is-disabled' : ""}`} data-target="step-item">
                                     <svg className="sectionHero-upsell-icon" width="19" height="16" viewBox="0 0 19 16" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M5.69 6.892l2.322 2.21L16.35.312c.38-.4 1.012-.418 1.413-.038.4.38.417 1.013.037 1.414l-9.027 9.517c-.38.402-1.014.418-1.415.037L4.31 8.34c-.4-.38-.415-1.014-.034-1.414.38-.4 1.014-.415 1.414-.034zM11.836.978c.484.265.662.873.397 1.357-.265.485-.873.663-1.357.398C10.002 2.253 9.02 2 8 2 4.686 2 2 4.686 2 8s2.686 6 6 6 6-2.686 6-6c0-.552.448-1 1-1s1 .448 1 1c0 4.418-3.582 8-8 8s-8-3.582-8-8 3.582-8 8-8c1.358 0 2.67.34 3.836.978z" fill-rule="nonzero"></path>
                                     </svg>
@@ -257,7 +243,7 @@ function Banner() {
                             </ul>
                         </footer>
                     </div>
-                    <div className={`sectionHero-upsell carousel-item`} data-target="carousel-item">
+                    <div className={`sectionHero-upsell carousel-item ${steps === 1 ? 'is-active' : ''}`} data-target="carousel-item">
                         <span className="sectionHero-upsell-title">
                             <span className="sectionHero-upsell-logo">
                                 <span className="sectionHero-upsell-img"><svg width="192" height="192" viewBox="0 0 192 192" xmlns="http://www.w3.org/2000/svg">
@@ -283,7 +269,7 @@ function Banner() {
                         <div className="sectionHero-steps" data-component="steps-rotator">
                             <span className="sectionHero-steps-decorator sectionHero-steps-decorator--above"></span>
                             <ol className="sectionHero-upsell-list">
-                                <li className={`sectionHero-upsell-item`} data-target="step-item">
+                                <li className={`sectionHero-upsell-item ${steps === 1 ? subSteps === 0 ? 'is-current' : '' : "is-disabled"}`} data-target="step-item">
                                     <svg className="sectionHero-upsell-icon" width="19" height="16" viewBox="0 0 19 16" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M5.69 6.892l2.322 2.21L16.35.312c.38-.4 1.012-.418 1.413-.038.4.38.417 1.013.037 1.414l-9.027 9.517c-.38.402-1.014.418-1.415.037L4.31 8.34c-.4-.38-.415-1.014-.034-1.414.38-.4 1.014-.415 1.414-.034zM11.836.978c.484.265.662.873.397 1.357-.265.485-.873.663-1.357.398C10.002 2.253 9.02 2 8 2 4.686 2 2 4.686 2 8s2.686 6 6 6 6-2.686 6-6c0-.552.448-1 1-1s1 .448 1 1c0 4.418-3.582 8-8 8s-8-3.582-8-8 3.582-8 8-8c1.358 0 2.67.34 3.836.978z" fill-rule="nonzero"></path>
                                     </svg>
@@ -291,7 +277,7 @@ function Banner() {
                                         Buyer and seller agree on terms
                                     </span>
                                 </li>
-                                <li className={`sectionHero-upsell-item`} data-target="step-item">
+                                <li className={`sectionHero-upsell-item ${steps === 1 ? subSteps === 1 ? 'is-current' : '' : "is-disabled"}`} data-target="step-item">
                                     <svg className="sectionHero-upsell-icon" width="19" height="16" viewBox="0 0 19 16" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M5.69 6.892l2.322 2.21L16.35.312c.38-.4 1.012-.418 1.413-.038.4.38.417 1.013.037 1.414l-9.027 9.517c-.38.402-1.014.418-1.415.037L4.31 8.34c-.4-.38-.415-1.014-.034-1.414.38-.4 1.014-.415 1.414-.034zM11.836.978c.484.265.662.873.397 1.357-.265.485-.873.663-1.357.398C10.002 2.253 9.02 2 8 2 4.686 2 2 4.686 2 8s2.686 6 6 6 6-2.686 6-6c0-.552.448-1 1-1s1 .448 1 1c0 4.418-3.582 8-8 8s-8-3.582-8-8 3.582-8 8-8c1.358 0 2.67.34 3.836.978z" fill-rule="nonzero"></path>
                                     </svg>
@@ -299,7 +285,7 @@ function Banner() {
                                         Buyer pays Escrow.com
                                     </span>
                                 </li>
-                                <li className={`sectionHero-upsell-item`} data-target="step-item">
+                                <li className={`sectionHero-upsell-item ${steps === 1 ? subSteps === 2 ? 'is-current' : '' : "is-disabled"}`} data-target="step-item">
                                     <svg className="sectionHero-upsell-icon" width="19" height="16" viewBox="0 0 19 16" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M5.69 6.892l2.322 2.21L16.35.312c.38-.4 1.012-.418 1.413-.038.4.38.417 1.013.037 1.414l-9.027 9.517c-.38.402-1.014.418-1.415.037L4.31 8.34c-.4-.38-.415-1.014-.034-1.414.38-.4 1.014-.415 1.414-.034zM11.836.978c.484.265.662.873.397 1.357-.265.485-.873.663-1.357.398C10.002 2.253 9.02 2 8 2 4.686 2 2 4.686 2 8s2.686 6 6 6 6-2.686 6-6c0-.552.448-1 1-1s1 .448 1 1c0 4.418-3.582 8-8 8s-8-3.582-8-8 3.582-8 8-8c1.358 0 2.67.34 3.836.978z" fill-rule="nonzero"></path>
                                     </svg>
@@ -307,7 +293,7 @@ function Banner() {
                                         Seller ships the vehicle
                                     </span>
                                 </li>
-                                <li className={`sectionHero-upsell-item`} data-target="step-item">
+                                <li className={`sectionHero-upsell-item ${steps === 1 ? subSteps === 3 ? 'is-current' : '' : "is-disabled"}`} data-target="step-item">
                                     <svg className="sectionHero-upsell-icon" width="19" height="16" viewBox="0 0 19 16" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M5.69 6.892l2.322 2.21L16.35.312c.38-.4 1.012-.418 1.413-.038.4.38.417 1.013.037 1.414l-9.027 9.517c-.38.402-1.014.418-1.415.037L4.31 8.34c-.4-.38-.415-1.014-.034-1.414.38-.4 1.014-.415 1.414-.034zM11.836.978c.484.265.662.873.397 1.357-.265.485-.873.663-1.357.398C10.002 2.253 9.02 2 8 2 4.686 2 2 4.686 2 8s2.686 6 6 6 6-2.686 6-6c0-.552.448-1 1-1s1 .448 1 1c0 4.418-3.582 8-8 8s-8-3.582-8-8 3.582-8 8-8c1.358 0 2.67.34 3.836.978z" fill-rule="nonzero"></path>
                                     </svg>
@@ -315,7 +301,7 @@ function Banner() {
                                         Buyer inspects &amp; approves vehicle
                                     </span>
                                 </li>
-                                <li className={`sectionHero-upsell-item`} data-target="step-item">
+                                <li className={`sectionHero-upsell-item ${steps === 1 ? subSteps === 4 ? 'is-current' : '' : "is-disabled"}`} data-target="step-item">
                                     <svg className="sectionHero-upsell-icon" width="19" height="16" viewBox="0 0 19 16" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M5.69 6.892l2.322 2.21L16.35.312c.38-.4 1.012-.418 1.413-.038.4.38.417 1.013.037 1.414l-9.027 9.517c-.38.402-1.014.418-1.415.037L4.31 8.34c-.4-.38-.415-1.014-.034-1.414.38-.4 1.014-.415 1.414-.034zM11.836.978c.484.265.662.873.397 1.357-.265.485-.873.663-1.357.398C10.002 2.253 9.02 2 8 2 4.686 2 2 4.686 2 8s2.686 6 6 6 6-2.686 6-6c0-.552.448-1 1-1s1 .448 1 1c0 4.418-3.582 8-8 8s-8-3.582-8-8 3.582-8 8-8c1.358 0 2.67.34 3.836.978z" fill-rule="nonzero"></path>
                                     </svg>
@@ -327,7 +313,7 @@ function Banner() {
                             <span className="sectionHero-steps-decorator sectionHero-steps-decorator--below"></span>
                         </div>
                     </div>
-                    <div className={`sectionHero-upsell carousel-item`} data-target="carousel-item">
+                    <div className={`sectionHero-upsell carousel-item ${steps === 2 ? 'is-active' : ''}`} data-target="carousel-item">
                         <span className="sectionHero-upsell-title">
                             <span className="sectionHero-upsell-logo">
                                 <span className="sectionHero-upsell-img"><svg width="192" height="192" viewBox="0 0 192 192" xmlns="http://www.w3.org/2000/svg">
@@ -355,7 +341,7 @@ function Banner() {
                         <div className="sectionHero-steps" data-component="steps-rotator">
                             <span className="sectionHero-steps-decorator sectionHero-steps-decorator--above"></span>
                             <ol className="sectionHero-upsell-list">
-                                <li className={`sectionHero-upsell-item`} data-target="step-item">
+                                <li className={`sectionHero-upsell-item ${steps === 2 ? subSteps === 0 ? 'is-current' : '' : "is-disabled"}`} data-target="step-item">
                                     <svg className="sectionHero-upsell-icon" width="19" height="16" viewBox="0 0 19 16" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M5.69 6.892l2.322 2.21L16.35.312c.38-.4 1.012-.418 1.413-.038.4.38.417 1.013.037 1.414l-9.027 9.517c-.38.402-1.014.418-1.415.037L4.31 8.34c-.4-.38-.415-1.014-.034-1.414.38-.4 1.014-.415 1.414-.034zM11.836.978c.484.265.662.873.397 1.357-.265.485-.873.663-1.357.398C10.002 2.253 9.02 2 8 2 4.686 2 2 4.686 2 8s2.686 6 6 6 6-2.686 6-6c0-.552.448-1 1-1s1 .448 1 1c0 4.418-3.582 8-8 8s-8-3.582-8-8 3.582-8 8-8c1.358 0 2.67.34 3.836.978z" fill-rule="nonzero"></path>
                                     </svg>
@@ -363,7 +349,7 @@ function Banner() {
                                         Buyer and seller agree on terms
                                     </span>
                                 </li>
-                                <li className={`sectionHero-upsell-item`} data-target="step-item">
+                                <li className={`sectionHero-upsell-item ${steps === 2 ? subSteps === 1 ? 'is-current' : '' : "is-disabled"}`} data-target="step-item">
                                     <svg className="sectionHero-upsell-icon" width="19" height="16" viewBox="0 0 19 16" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M5.69 6.892l2.322 2.21L16.35.312c.38-.4 1.012-.418 1.413-.038.4.38.417 1.013.037 1.414l-9.027 9.517c-.38.402-1.014.418-1.415.037L4.31 8.34c-.4-.38-.415-1.014-.034-1.414.38-.4 1.014-.415 1.414-.034zM11.836.978c.484.265.662.873.397 1.357-.265.485-.873.663-1.357.398C10.002 2.253 9.02 2 8 2 4.686 2 2 4.686 2 8s2.686 6 6 6 6-2.686 6-6c0-.552.448-1 1-1s1 .448 1 1c0 4.418-3.582 8-8 8s-8-3.582-8-8 3.582-8 8-8c1.358 0 2.67.34 3.836.978z" fill-rule="nonzero"></path>
                                     </svg>
@@ -371,7 +357,7 @@ function Banner() {
                                         Buyer pays Escrow.com
                                     </span>
                                 </li>
-                                <li className={`sectionHero-upsell-item`} data-target="step-item">
+                                <li className={`sectionHero-upsell-item ${steps === 2 ? subSteps === 2 ? 'is-current' : '' : "is-disabled"}`} data-target="step-item">
                                     <svg className="sectionHero-upsell-icon" width="19" height="16" viewBox="0 0 19 16" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M5.69 6.892l2.322 2.21L16.35.312c.38-.4 1.012-.418 1.413-.038.4.38.417 1.013.037 1.414l-9.027 9.517c-.38.402-1.014.418-1.415.037L4.31 8.34c-.4-.38-.415-1.014-.034-1.414.38-.4 1.014-.415 1.414-.034zM11.836.978c.484.265.662.873.397 1.357-.265.485-.873.663-1.357.398C10.002 2.253 9.02 2 8 2 4.686 2 2 4.686 2 8s2.686 6 6 6 6-2.686 6-6c0-.552.448-1 1-1s1 .448 1 1c0 4.418-3.582 8-8 8s-8-3.582-8-8 3.582-8 8-8c1.358 0 2.67.34 3.836.978z" fill-rule="nonzero"></path>
                                     </svg>
@@ -379,7 +365,7 @@ function Banner() {
                                         Seller ships the merchandise
                                     </span>
                                 </li>
-                                <li className={`sectionHero-upsell-item`} data-target="step-item">
+                                <li className={`sectionHero-upsell-item ${steps === 2 ? subSteps === 3 ? 'is-current' : '' : "is-disabled"}`} data-target="step-item">
                                     <svg className="sectionHero-upsell-icon" width="19" height="16" viewBox="0 0 19 16" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M5.69 6.892l2.322 2.21L16.35.312c.38-.4 1.012-.418 1.413-.038.4.38.417 1.013.037 1.414l-9.027 9.517c-.38.402-1.014.418-1.415.037L4.31 8.34c-.4-.38-.415-1.014-.034-1.414.38-.4 1.014-.415 1.414-.034zM11.836.978c.484.265.662.873.397 1.357-.265.485-.873.663-1.357.398C10.002 2.253 9.02 2 8 2 4.686 2 2 4.686 2 8s2.686 6 6 6 6-2.686 6-6c0-.552.448-1 1-1s1 .448 1 1c0 4.418-3.582 8-8 8s-8-3.582-8-8 3.582-8 8-8c1.358 0 2.67.34 3.836.978z" fill-rule="nonzero"></path>
                                     </svg>
@@ -387,7 +373,7 @@ function Banner() {
                                         Buyer inspects &amp; approves goods
                                     </span>
                                 </li>
-                                <li className={`sectionHero-upsell-item`} data-target="step-item">
+                                <li className={`sectionHero-upsell-item ${steps === 2 ? subSteps === 4 ? 'is-current' : '' : "is-disabled"}`} data-target="step-item">
                                     <svg className="sectionHero-upsell-icon" width="19" height="16" viewBox="0 0 19 16" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M5.69 6.892l2.322 2.21L16.35.312c.38-.4 1.012-.418 1.413-.038.4.38.417 1.013.037 1.414l-9.027 9.517c-.38.402-1.014.418-1.415.037L4.31 8.34c-.4-.38-.415-1.014-.034-1.414.38-.4 1.014-.415 1.414-.034zM11.836.978c.484.265.662.873.397 1.357-.265.485-.873.663-1.357.398C10.002 2.253 9.02 2 8 2 4.686 2 2 4.686 2 8s2.686 6 6 6 6-2.686 6-6c0-.552.448-1 1-1s1 .448 1 1c0 4.418-3.582 8-8 8s-8-3.582-8-8 3.582-8 8-8c1.358 0 2.67.34 3.836.978z" fill-rule="nonzero"></path>
                                     </svg>
@@ -399,7 +385,7 @@ function Banner() {
                             <span className="sectionHero-steps-decorator sectionHero-steps-decorator--below"></span>
                         </div>
                     </div>
-                    <div className={`sectionHero-upsell carousel-item is-active`} data-target="carousel-item">
+                    <div className={`sectionHero-upsell carousel-item ${steps === 3 ? 'is-active' : ''}`} data-target="carousel-item">
                         <span className="sectionHero-upsell-title">
                             <span className="sectionHero-upsell-logo">
                                 <span className="sectionHero-upsell-img"><svg width="192" height="192" viewBox="0 0 192 192" xmlns="http://www.w3.org/2000/svg">
@@ -427,7 +413,7 @@ function Banner() {
                         <div className="sectionHero-steps" data-component="steps-rotator">
                             <span className="sectionHero-steps-decorator sectionHero-steps-decorator--above"></span>
                             <ol className="sectionHero-upsell-list">
-                                <li className={`sectionHero-upsell-item`} data-target="step-item">
+                                <li className={`sectionHero-upsell-item ${steps === 3 ? subSteps === 0 ? 'is-current' : '' : "is-disabled"}`} data-target="step-item">
                                     <svg className="sectionHero-upsell-icon" width="19" height="16" viewBox="0 0 19 16" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M5.69 6.892l2.322 2.21L16.35.312c.38-.4 1.012-.418 1.413-.038.4.38.417 1.013.037 1.414l-9.027 9.517c-.38.402-1.014.418-1.415.037L4.31 8.34c-.4-.38-.415-1.014-.034-1.414.38-.4 1.014-.415 1.414-.034zM11.836.978c.484.265.662.873.397 1.357-.265.485-.873.663-1.357.398C10.002 2.253 9.02 2 8 2 4.686 2 2 4.686 2 8s2.686 6 6 6 6-2.686 6-6c0-.552.448-1 1-1s1 .448 1 1c0 4.418-3.582 8-8 8s-8-3.582-8-8 3.582-8 8-8c1.358 0 2.67.34 3.836.978z" fill-rule="nonzero"></path>
                                     </svg>
@@ -435,7 +421,7 @@ function Banner() {
                                         Buyer and seller agree on schedule
                                     </span>
                                 </li>
-                                <li className={`sectionHero-upsell-item`} data-target="step-item">
+                                <li className={`sectionHero-upsell-item ${steps === 3 ? subSteps === 1 ? 'is-current' : '' : "is-disabled"}`} data-target="step-item">
                                     <svg className="sectionHero-upsell-icon" width="19" height="16" viewBox="0 0 19 16" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M5.69 6.892l2.322 2.21L16.35.312c.38-.4 1.012-.418 1.413-.038.4.38.417 1.013.037 1.414l-9.027 9.517c-.38.402-1.014.418-1.415.037L4.31 8.34c-.4-.38-.415-1.014-.034-1.414.38-.4 1.014-.415 1.414-.034zM11.836.978c.484.265.662.873.397 1.357-.265.485-.873.663-1.357.398C10.002 2.253 9.02 2 8 2 4.686 2 2 4.686 2 8s2.686 6 6 6 6-2.686 6-6c0-.552.448-1 1-1s1 .448 1 1c0 4.418-3.582 8-8 8s-8-3.582-8-8 3.582-8 8-8c1.358 0 2.67.34 3.836.978z" fill-rule="nonzero"></path>
                                     </svg>
@@ -443,7 +429,7 @@ function Banner() {
                                         Buyer pays Escrow.com
                                     </span>
                                 </li>
-                                <li className={`sectionHero-upsell-item`} data-target="step-item">
+                                <li className={`sectionHero-upsell-item ${steps === 3 ? subSteps === 2 ? 'is-current' : '' : "is-disabled"}`} data-target="step-item">
                                     <svg className="sectionHero-upsell-icon" width="19" height="16" viewBox="0 0 19 16" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M5.69 6.892l2.322 2.21L16.35.312c.38-.4 1.012-.418 1.413-.038.4.38.417 1.013.037 1.414l-9.027 9.517c-.38.402-1.014.418-1.415.037L4.31 8.34c-.4-.38-.415-1.014-.034-1.414.38-.4 1.014-.415 1.414-.034zM11.836.978c.484.265.662.873.397 1.357-.265.485-.873.663-1.357.398C10.002 2.253 9.02 2 8 2 4.686 2 2 4.686 2 8s2.686 6 6 6 6-2.686 6-6c0-.552.448-1 1-1s1 .448 1 1c0 4.418-3.582 8-8 8s-8-3.582-8-8 3.582-8 8-8c1.358 0 2.67.34 3.836.978z" fill-rule="nonzero"></path>
                                     </svg>
@@ -451,7 +437,7 @@ function Banner() {
                                         Seller provides the service
                                     </span>
                                 </li>
-                                <li className={`sectionHero-upsell-item`} data-target="step-item">
+                                <li className={`sectionHero-upsell-item ${steps === 3 ? subSteps === 3 ? 'is-current' : '' : "is-disabled"}`} data-target="step-item">
                                     <svg className="sectionHero-upsell-icon" width="19" height="16" viewBox="0 0 19 16" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M5.69 6.892l2.322 2.21L16.35.312c.38-.4 1.012-.418 1.413-.038.4.38.417 1.013.037 1.414l-9.027 9.517c-.38.402-1.014.418-1.415.037L4.31 8.34c-.4-.38-.415-1.014-.034-1.414.38-.4 1.014-.415 1.414-.034zM11.836.978c.484.265.662.873.397 1.357-.265.485-.873.663-1.357.398C10.002 2.253 9.02 2 8 2 4.686 2 2 4.686 2 8s2.686 6 6 6 6-2.686 6-6c0-.552.448-1 1-1s1 .448 1 1c0 4.418-3.582 8-8 8s-8-3.582-8-8 3.582-8 8-8c1.358 0 2.67.34 3.836.978z" fill-rule="nonzero"></path>
                                     </svg>
@@ -459,7 +445,7 @@ function Banner() {
                                         Buyer approves the milestone
                                     </span>
                                 </li>
-                                <li className={`sectionHero-upsell-item`} data-target="step-item">
+                                <li className={`sectionHero-upsell-item ${steps === 3 ? subSteps === 4 ? 'is-current' : '' : "is-disabled"}`} data-target="step-item">
                                     <svg className="sectionHero-upsell-icon" width="19" height="16" viewBox="0 0 19 16" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M5.69 6.892l2.322 2.21L16.35.312c.38-.4 1.012-.418 1.413-.038.4.38.417 1.013.037 1.414l-9.027 9.517c-.38.402-1.014.418-1.415.037L4.31 8.34c-.4-.38-.415-1.014-.034-1.414.38-.4 1.014-.415 1.414-.034zM11.836.978c.484.265.662.873.397 1.357-.265.485-.873.663-1.357.398C10.002 2.253 9.02 2 8 2 4.686 2 2 4.686 2 8s2.686 6 6 6 6-2.686 6-6c0-.552.448-1 1-1s1 .448 1 1c0 4.418-3.582 8-8 8s-8-3.582-8-8 3.582-8 8-8c1.358 0 2.67.34 3.836.978z" fill-rule="nonzero"></path>
                                     </svg>
