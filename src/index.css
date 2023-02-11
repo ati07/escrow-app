@@ -79,7 +79,7 @@
   margin-bottom: 2rem;
 }
 
-.btn {
+/* .btn {
   width: 180px;
   height: 64px;
   background: #fff;
@@ -91,7 +91,7 @@
   border-radius: 0.4rem;
   font-weight: 700;
   cursor: pointer;
-}
+} */
 
 /* screens bigger than 900px */
 @media (min-width: 900px) {
