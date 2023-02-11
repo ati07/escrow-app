@@ -1,21 +1,13 @@
 import React, { Fragment, useEffect, useState } from 'react'
-// import { Disclosure, Menu, Transition } from '@headlessui/react'
-// import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
-
-// const navigation = [
-//   { name: 'Dashboard', href: '#', current: true },
-//   { name: 'Team', href: '#', current: false },
-//   { name: 'Projects', href: '#', current: false },
-//   { name: 'Calendar', href: '#', current: false },
-// ]
-
-// function classNameNames(...classNamees:any) {
-//   return classNamees.filter(Boolean).join(' ')
-// }
 
 export default function Header() {
   const [offset, setOffset] = useState(0);
 
+  const handleHeader=()=>{
+    document.body.className ===''? 
+    document.body.classList.add('is-mobileNavActive') :
+    document.body.classList.remove('is-mobileNavActive') 
+  }
   useEffect(() => {
       const onScroll = () => setOffset(window.pageYOffset);
       // clean up code
@@ -33,7 +25,7 @@ export default function Header() {
           <div className="headerV2-primary">
             <div className="headerV2-container section-container">
               <div className="headerV2-inner">
-                <button className="headerV2-menuBtn media--available@tablet" aria-label="Open Menu" data-header-menu-toggle="">
+                <button onClick={handleHeader} className="headerV2-menuBtn media--available@tablet" aria-label="Open Menu" data-header-menu-toggle="">
                   <svg className="icon headerV2-menuBtn-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                     <path d="M12 16c-.3 0-.5-.1-.7-.3l-6-6 1.4-1.4 5.3 5.3 5.3-5.3 1.4 1.4-6 6c-.2.2-.4.3-.7.3z"></path>
                   </svg>
