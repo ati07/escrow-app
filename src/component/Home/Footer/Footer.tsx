@@ -54,7 +54,7 @@ function Footer() {
                         <a className="defaultFooter-link" href="/partners/our-partners" data-target="footer-ecart">Our
                             Partners</a>
                         <a className="defaultFooter-link" href="/sales" data-target="footer-sales-form">Partner Enquiry</a>
-                        <a className="defaultFooter-link" href="/api/docs" data-target="footer-api-docs">API Guide</a>
+                        {/* <a className="defaultFooter-link" href="/api/docs" data-target="footer-api-docs">API Guide</a> */}
                     </nav>
 
                 </div>
