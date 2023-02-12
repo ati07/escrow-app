@@ -15,7 +15,7 @@ export default function Header() {
       window.addEventListener('scroll', onScroll, { passive: true });
       return () => window.removeEventListener('scroll', onScroll);
   }, []);
-   console.log("pagOff",offset)
+  //  console.log("pagOff",offset)
    
   return (
     <div className="header--transparent">
@@ -270,21 +270,21 @@ export default function Header() {
                                   for your transactions</p>
                               </a>
                             </li>
-                            <li className="headerV2-subnav-item">
+                            {/* <li className="headerV2-subnav-item">
                               <a href="/buttons/create" className="headerV2-subnav-link" data-e2e-target="header-nav-businesss-escrow-buttons">
                                 <h3 className="headerV2-subnav-title">Escrow Buttons
                                 </h3>
                                 <p className="headerV2-subnav-desc">Create a button for
                                   Escrow transaction</p>
                               </a>
-                            </li>
-                            <li className="headerV2-subnav-item">
+                            </li> */}
+                            {/* <li className="headerV2-subnav-item">
                               <a href="/api" className="headerV2-subnav-link" data-e2e-target="header-nav-businesss-escrow-api">
                                 <h3 className="headerV2-subnav-title">Escrow API</h3>
                                 <p className="headerV2-subnav-desc">Get all benefits of
                                   Escrow via API</p>
                               </a>
-                            </li>
+                            </li> */}
                           </ul>
                           <div className="headerV2-upsell media--hidden@tablet">
                             <div className="headerV2-upsell-content">
@@ -301,7 +301,7 @@ export default function Header() {
                         </div>
                       </div>
                     </li>
-                    <li role="tab" tabIndex={0} className="headerV2-primaryNav-item" aria-controls="header-developer-tab" id="header-developer" data-header-nav-item="">
+                    {/* <li role="tab" tabIndex={0} className="headerV2-primaryNav-item" aria-controls="header-developer-tab" id="header-developer" data-header-nav-item="">
                       <span className="headerV2-primaryNav-title">
                         <span className="headerV2-primaryNav-text">Developer</span>
                         <svg className="icon headerV2-primaryNav-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
@@ -364,7 +364,7 @@ export default function Header() {
                           </div>
                         </div>
                       </div>
-                    </li>
+                    </li> */}
                     <li role="tab" tabIndex={0} className="headerV2-primaryNav-item" aria-controls="header-help-tab" id="header-help" data-header-nav-item="">
                       <span className="headerV2-primaryNav-title">
                         <span className="headerV2-primaryNav-text">Help</span>

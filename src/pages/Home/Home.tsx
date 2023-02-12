@@ -25,11 +25,11 @@ function Home() {
       <PartnerSection/>
       <HowToWork/>
       <Services/>
-      <Subscribe/>
+      {/* <Subscribe/> */}
       <PartnerQuotes/>
       <Section/>
       <Section1/>
-      <Section2/>
+      {/* <Section2/> */}
       <License/>
       </main>
       <Footer/>
