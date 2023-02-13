@@ -1,8 +1,9 @@
 import React, { Fragment, useEffect, useState } from 'react'
+import { Link } from 'react-router-dom';
 
-export default function Header() {
+export default function Header({isSticky}:any) {
   const [offset, setOffset] = useState(0);
-
+  const [isHover, setHover] = useState(false)
   const handleHeader=()=>{
     document.body.className ===''? 
     document.body.classList.add('is-mobileNavActive') :
@@ -19,9 +20,12 @@ export default function Header() {
    
   return (
     <div className="header--transparent">
-      <div data-component="navigation-header" data-header="default">
+      <div 
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
+      data-component="navigation-header" data-header="default" className={`${isHover?"is-navHover":""}`}>
 
-        <header className={`headerV2 ${offset > 0?"is-sticky":"is-header-scrollTop"}`} data-sticky-header="" data-header-logged-out="" data-header="">
+        <header className={`headerV2 ${offset > 0 || isSticky ?"is-sticky":"is-header-scrollTop"}`} data-sticky-header="" data-header-logged-out="" data-header="">
           <div className="headerV2-primary">
             <div className="headerV2-container section-container">
               <div className="headerV2-inner">
@@ -418,14 +422,15 @@ export default function Header() {
                               </a>
                             </li>
                             <li className="headerV2-subnav-item media--available@mobile">
-                              <a href="/login-page" className="headerV2-subnav-link" data-e2e-target="header-nav-help-mobile-login">
+                            {/* /login-page */}
+                              <Link to='/login' className="headerV2-subnav-link" data-e2e-target="header-nav-help-mobile-login">
                                 <h3 className="headerV2-subnav-title">Login</h3>
-                              </a>
+                              </Link>
                             </li>
                             <li className="headerV2-subnav-item media--available@mobile">
-                              <a href="/signup-page" className="headerV2-subnav-link">
-                                <h3 className="headerV2-subnav-title">Signup →
-                                </h3>
+                              <a href="" className="headerV2-subnav-link">
+                                <Link to="/signup"><h3 className="headerV2-subnav-title">Signup →
+                                </h3></Link>
                               </a>
                             </li>
                           </ul>
@@ -512,14 +517,14 @@ export default function Header() {
                   </div>
                   <ul className="headerV2-authNav">
                     <li className="headerV2-authNav-item">
-                      <a href="/login-page" className="headerV2-authNav-link" data-e2e-target="header-nav-login">
-                        <span className="headerV2-authNav-text">Login</span>
-                      </a>
+                      <Link to='/login' className="headerV2-authNav-link" data-e2e-target="header-nav-login">
+                      <span className="headerV2-authNav-text">Login</span>
+                      </Link>
                     </li>
                     <li className="headerV2-authNav-item">
-                      <a href="/signup-page" className="headerV2-authNav-link" data-e2e-target="header-nav-signup">
+                      <Link to="/signup" className="headerV2-authNav-link" data-e2e-target="header-nav-signup">
                         <span className="headerV2-authNav-text">Signup →</span>
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                 </nav>

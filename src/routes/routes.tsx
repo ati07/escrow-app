@@ -1,6 +1,8 @@
 import React from 'react'
 import ComingSoon from '../assets/ComingSoon'
 import Home from '../pages/Home/Home'
+import Login from '../pages/Login/Login'
+import SignUp from '../pages/SignUp/SignUp'
 import { RouteType } from './routeType'
 // import { urls } from '../redux/ApiHandler/BackendAPI'
 // import ConfigureTheme from '../pages/themesettings/ConfigureTheme/ConfigureTheme'
@@ -17,6 +19,14 @@ export const appRoutes: RouteType[] = [
   {
     path: '/',
     element: <Home/>
+  },
+  {
+    path:"/login",
+    element:<Login/>
+  },
+  {
+    path:"/signup",
+    element:<SignUp/>
   },
   {
     path: "*",
